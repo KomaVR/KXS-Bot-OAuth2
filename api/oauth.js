@@ -32,9 +32,9 @@ export default async function handler(req, res) {
       }
     });
 
-    return res.status(200).json(response.data);
+    res.json(response.data);
   } catch (error) {
     console.error(error.response?.data || error.message);
-    return res.status(500).json({ error: 'Error exchanging code for token' });
+    res.status(500).json({ error: 'Error exchanging code for token' });
   }
 }
